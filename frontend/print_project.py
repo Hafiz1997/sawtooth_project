@@ -54,7 +54,8 @@ if not len(args) == 1:  # make sure correct number of arguments are present
     print("\nIncorrect number of arguments for desired command.\n")
     quit()
 # queries state
-resp = requests.get("http://bc.oregonctf.org:8008/state")
+#change url here too!!!!!!!!!!!!!!!!!!!!
+resp = requests.get("http://(insert ip):8008/state")
 state = json.loads(resp.text)['data']
 project_name = args[0]
 # gets project node from state
