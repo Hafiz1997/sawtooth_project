@@ -55,7 +55,7 @@ if not len(args) == 1:  # make sure correct number of arguments are present
     quit()
 # queries state
 #change url here too!!!!!!!!!!!!!!!!!!!!
-resp = requests.get("http://(insert ip):8008/state")
+resp = requests.get("http://10.148.0.3:8008/state")
 state = json.loads(resp.text)['data']
 project_name = args[0]
 # gets project node from state

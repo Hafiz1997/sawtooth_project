@@ -245,7 +245,7 @@ def send_it(batch_list_bytes):
     '''Sends batch to REST API, eventually reaching validator nodes and transaction processors'''
     # ship it out and scrape
     #don't forget to change url!!!!!!!!!!!!!!!
-    url = "http://(insert ip):8008/batches"
+    url = "http://10.148.0.3:8008/batches"
     headers = { 'Content-Type' : 'application/octet-stream' }
     payload = batch_list_bytes
     resp = requests.post(url, data=payload, headers=headers)
