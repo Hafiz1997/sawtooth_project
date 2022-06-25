@@ -35,7 +35,7 @@ class Txn_Factory():
             args: [password/signer, project_name]
         '''
         if not len(args) == 2: # make sure correct number of arguments are present for desired transaction
-        print ("\nIncorrect number of arguments for desired command.\n")
+        print("\nIncorrect number of arguments for desired command.\n")
         quit()
         signer = args[0]
 
