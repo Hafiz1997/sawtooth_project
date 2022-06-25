@@ -1,5 +1,5 @@
 import hashlib
-import libsecp256k1-dev
+import secp256k1
 import time
 import requests
 import json
