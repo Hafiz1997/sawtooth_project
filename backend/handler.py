@@ -273,22 +273,22 @@ def _unpack_transaction(transaction, state):
     timestamp = payload_wrapper.timestamp
     # in `_unpack_transaction(...)`
     # used to determine which handler function should be used on a certain type of payload
-        TYPE_TO_ACTION_HANDLER = {
-            Payload.CREATE_PROJECT: ('create_project', _create_project),
-            Payload.CREATE_TASK: ('create_task', _create_task),
-            Payload.PROGRESS_TASK: ('progress_task', _progress_task),
-            Payload.EDIT_TASK: ('edit_task', _edit_task),
-            Payload.ADD_USER: ('add_user', _add_user),
-        }
-        try:
-            # get the correct payload field and handler function from the action type
-            attribute, handler = TYPE_TO_ACTION_HANDLER[action]
-        except KeyError:
-            raise InvalidTransaction('Specified action is invalid')
-        # extract the correct payload based on the action type
-        payload = getattr(payload_wrapper, attribute)
-        # go back to apply
-        return signer, timestamp, payload, handler
+    TYPE_TO_ACTION_HANDLER = {
+        Payload.CREATE_PROJECT: ('create_project', _create_project),
+        Payload.CREATE_TASK: ('create_task', _create_task),
+        Payload.PROGRESS_TASK: ('progress_task', _progress_task),
+        Payload.EDIT_TASK: ('edit_task', _edit_task),
+        Payload.ADD_USER: ('add_user', _add_user),
+    }
+    try:
+        # get the correct payload field and handler function from the action type
+        attribute, handler = TYPE_TO_ACTION_HANDLER[action]
+    except KeyError:
+        raise InvalidTransaction('Specified action is invalid')
+    # extract the correct payload based on the action type
+    payload = getattr(payload_wrapper, attribute)
+    # go back to apply
+    return signer, timestamp, payload, handler
 
 
 def _get_container(state, address):
